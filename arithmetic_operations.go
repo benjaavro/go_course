@@ -1,0 +1,38 @@
+package main
+
+import "fmt"
+
+func main() {
+	// Variable declaration
+	var a, b int = 10, 3
+	var result int
+
+	result = a + b
+	fmt.Println("Addition: ", result)
+
+	result = a - b
+	fmt.Println("Substraction: ", result)
+
+	result = a * b
+	fmt.Println("Multiplication: ", result)
+
+	result = a / b
+	fmt.Println("Division: ", result)
+
+	result = a % b
+	fmt.Println("Modulo/Remainder: ", result)
+
+	const pi float64 = 22 / 7.0
+	fmt.Println("PI: ", pi)
+
+	// Overflow with signed int
+	var maxInt int64 = 10000000000000000000
+	fmt.Println(maxInt)
+
+	maxInt = maxInt + 1
+	fmt.Println(maxInt)
+
+	// Overflow with unsigned int
+	var uMaxInt uint64 = 10000000000000000000
+	fmt.Println(uMaxInt)
+}

@@ -1,4 +1,4 @@
-package main
+package basics
 
 const PI = 3.14
 const GRAVITY = 9.81
