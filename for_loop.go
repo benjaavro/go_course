@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+func main() {
+	// Iterate over a range
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	// Iterate over collection
+	numbers := []int{1, 2, 88, 4, 5}
+	for index, value := range numbers {
+		fmt.Printf("Index: %d, Value: %v\n", index, value)
+	}
+
+	// Usage of continue and break statements
+	for i := 0; i <= 10; i++ {
+		if i%2 == 0 { // Skip even numbers
+			continue
+		}
+		fmt.Println("Odd number:", i)
+		if i == 5 {
+			break
+		}
+	}
+
+	// short declaration using ranges
+	for i := range 10 {
+		fmt.Println(i)
+	}
+}
