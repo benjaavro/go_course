@@ -1,0 +1,53 @@
+package main
+
+import "fmt"
+
+func main() {
+	// var arrayName [size]type
+	var numbers [5]int
+	fmt.Println(numbers)
+
+	numbers[0] = 1
+	fmt.Println(numbers)
+
+	fruits := [4]string{"banana", "apple", "mango", "watermelon"}
+	fmt.Println("Fruits array: ", fruits)
+
+	for i := 0; i < len(fruits); i++ {
+		fmt.Println(fruits[i])
+	}
+
+	for _, fruit := range fruits {
+		fmt.Println(fruit)
+	}
+
+	// Blank identifier
+	a, _ := someFunction()
+	fmt.Println(a)
+
+	// Comparing arrays
+	array1 := [5]int{1, 2, 3, 4, 5}
+	array2 := [5]int{1, 2, 3, 4, 5}
+
+	fmt.Println(array1 == array2)
+
+	// Nested arrays [matrix]
+	var matrix [3][3]int = [3][3]int{
+		{1, 2, 3},
+		{4, 5, 6},
+		{7, 8, 9},
+	}
+	fmt.Println(matrix)
+
+	// Array pointers
+	originalArray := [3]int{1, 2, 3}
+	var copiedArray *[3]int
+	copiedArray = &originalArray
+	fmt.Println(originalArray == *copiedArray)
+	fmt.Println("Original array: ", originalArray)
+	fmt.Println("Copied array: ", copiedArray)
+}
+
+func someFunction() (int, int) {
+	return 5, 6
+}
