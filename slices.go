@@ -1,0 +1,62 @@
+package main
+
+import (
+	"fmt"
+	"slices"
+)
+
+func main() {
+	var numbers []int
+	var numbersA = []int{1, 2, 3, 4, 5}
+	numbersB := []int{6, 7, 8, 9}
+
+	fmt.Println(numbers)
+	fmt.Println(numbersA)
+	fmt.Println(numbersB)
+
+	slice := make([]int, 5)
+	fmt.Println(slice)
+
+	a := [5]int{1, 2, 3, 4, 5}
+	slice = a[1:3]
+	fmt.Println(slice)
+
+	slice = append(slice, []int{6, 1, 8, 10}...)
+	slice = append(slice, 88)
+	fmt.Println(slice)
+
+	sliceCopy := make([]int, len(slice))
+	copy(sliceCopy, slice)
+	fmt.Println(sliceCopy)
+
+	// nil slice
+	var nilSlice []int
+	fmt.Println(nilSlice)
+
+	// Iterate slice
+	for i, value := range slice {
+		fmt.Println(i, value)
+	}
+
+	sliceCopy[0] = 100
+
+	// Slices comparison
+	if slices.Equal(slice, sliceCopy) {
+		fmt.Println("slices are equal")
+	}
+
+	// Two dimensional Slice (Slices matrix)
+	twoD := make([][]int, 5)
+	for column := 0; column < 5; column++ {
+		innerLen := column + 1
+		twoD[column] = make([]int, innerLen)
+
+		for row := 0; row < innerLen; row++ {
+			twoD[column][row] = column + row
+		}
+	}
+	fmt.Println(twoD)
+
+	slice2 := sliceCopy[1:7]
+	fmt.Println(cap(slice2), slice2)
+}
