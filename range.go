@@ -1,0 +1,16 @@
+package main
+
+import "fmt"
+
+func main() {
+	message := "Hey!"
+	for i := 0; i < len(message); i++ {
+		fmt.Println(message[i])
+	}
+
+	for _, v := range message {
+		// fmt.Println(i, v)
+		// fmt.Printf("Index: %d - Rune: %c\n", i, v)
+		fmt.Printf("Rune: %c\n", v)
+	}
+}
