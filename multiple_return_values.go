@@ -1,0 +1,36 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	// Multiple return values function
+	q, r := divide(9, 4)
+	fmt.Println(q, r)
+
+	// Function that return possibly an error
+	result, response := compare(8, 8)
+	if response != nil {
+		fmt.Println("Error:", response)
+	} else {
+		fmt.Println(result)
+	}
+}
+
+func compare(a, b int) (string, error) {
+	if a > b {
+		return "A is greater than B", nil
+	} else if a < b {
+		return "B is greater than A", nil
+	} else {
+		return "", errors.New("A and B are equal")
+	}
+}
+
+func divide(a, b int) (quotient int, remainder int) {
+	quotient = a / b
+	remainder = a % b
+	return
+}
