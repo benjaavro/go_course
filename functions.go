@@ -1,0 +1,56 @@
+package main
+
+import "fmt"
+
+func main() {
+	sum := add(8, 2)
+	fmt.Println(sum)
+	fmt.Println(add(100, 1))
+
+	// anonymous function
+	func() {
+		fmt.Println("Executed anonymous function")
+	}()
+
+	// anonymous function assigned to variable
+	greet := func() {
+		fmt.Println("Executed anonymous function from var")
+	}
+	greet()
+
+	// Assign declared function to variable
+	operation := add
+	result := operation(1, 2)
+	fmt.Println(result)
+
+	// anonymous function assigned to variable
+	greet2 := func(name string) int {
+		fmt.Println(name, "Executed anonymous function from var")
+		return 88
+	}
+	number := greet2("Benji")
+	fmt.Println(number)
+
+	// Send func as argument
+	result2 := applyOperation(5, 15, add)
+	fmt.Println(result2)
+
+	// Func that return func
+	myFunc := createMultiplier(20)
+	result3 := myFunc(17)
+	fmt.Println(result3)
+}
+
+func createMultiplier(factor int) func(int) int {
+	return func(x int) int {
+		return x * factor
+	}
+}
+
+func applyOperation(a, b int, operation func(int, int) int) int {
+	return operation(a, b)
+}
+
+func add(a, b int) int {
+	return a + b
+}
