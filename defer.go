@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+func main() {
+	process(10)
+}
+
+func process(i int) {
+	defer fmt.Println("Deferred i Value", i)
+	defer fmt.Println("Deferred statement")
+	defer fmt.Println("Second Deferred statement")
+	defer fmt.Println("Third Deferred statement")
+	i++
+	fmt.Println("Normal execution")
+	fmt.Println("Value of i", i)
+}
