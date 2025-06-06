@@ -1,0 +1,23 @@
+package main
+
+import "fmt"
+
+func main() {
+	// panic(interface {})
+
+	// Valid example
+	process(10)
+	// Invalid example
+	process(-10)
+}
+
+func process(input int) {
+	defer fmt.Println("Defer 1")
+	defer fmt.Println("Defer 2")
+
+	if input < 0 {
+		fmt.Println("Before panic")
+		panic("input is negative")
+	}
+	fmt.Println("input is ", input)
+}
