@@ -1,0 +1,35 @@
+package main
+
+import "fmt"
+
+func main() {
+	sequence := adder()
+	fmt.Println(sequence())
+	fmt.Println(sequence())
+	fmt.Println(sequence())
+
+	sequence2 := adder()
+	fmt.Println(sequence2())
+
+	substrate := func() func(int) int {
+		sum := 99
+		return func(x int) int {
+			sum -= x
+			return sum
+		}
+	}()
+	fmt.Println(substrate(1))
+	fmt.Println(substrate(2))
+	fmt.Println(substrate(3))
+}
+
+func adder() func() int {
+	sum := 0
+	fmt.Println("Previous value", sum)
+
+	return func() int {
+		sum++
+		fmt.Println("New value", sum)
+		return sum
+	}
+}
