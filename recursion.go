@@ -1,0 +1,17 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Factorial: ", factorial(3))
+}
+
+func factorial(n int) int {
+	// Base Case
+	if n == 0 {
+		return 1
+	}
+
+	// Recursive Case
+	return n * factorial(n-1)
+}
