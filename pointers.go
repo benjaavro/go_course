@@ -1,0 +1,19 @@
+package main
+
+import "fmt"
+
+func main() {
+	// var ptr *int
+	var a int = 10
+	ptr := &a // this stores the memory address where 10 is stored
+	fmt.Println("a = ", a)
+	fmt.Println("ptr = ", ptr)
+	fmt.Println("ptr referencing = ", *ptr)
+
+	modifyValue(ptr)
+	fmt.Println("a = ", a)
+}
+
+func modifyValue(ptr *int) {
+	*ptr++
+}
