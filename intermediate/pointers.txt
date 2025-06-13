@@ -1,4 +1,4 @@
-package main
+package intermediate
 
 import "fmt"
 
@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("ptr referencing = ", *ptr)
 
 	modifyValue(ptr)
-	fmt.Println("a = ", a)
+	fmt.Println("a = 😂", a)
 }
 
 func modifyValue(ptr *int) {
