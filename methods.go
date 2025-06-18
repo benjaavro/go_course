@@ -1,0 +1,52 @@
+package main
+
+import "fmt"
+
+type Rectangle struct {
+	width  float64
+	height float64
+}
+
+// Area Method using value receiver
+func (r *Rectangle) Area() float64 {
+	return r.width * r.height
+}
+
+func (r *Rectangle) Scale(factor float64) {
+	r.width = r.width * factor
+	r.height = r.height * factor
+}
+
+type Shape struct {
+	Rectangle
+}
+
+type MyInt int
+
+// IsPositive Method on a user-defined type
+func (m MyInt) IsPositive() bool {
+	return m > 0
+}
+
+func (MyInt) Welcome() string {
+	return "Welcome to MyInt"
+}
+
+func main() {
+	rect := Rectangle{width: 10, height: 5}
+	area := rect.Area()
+	fmt.Println(area)
+
+	rect.Scale(2)
+	area = rect.Area()
+	fmt.Println(area)
+
+	num1 := MyInt(-5)
+	num2 := MyInt(9)
+	fmt.Println(num1.IsPositive())
+	fmt.Println(num2.IsPositive())
+	fmt.Println(num2.Welcome())
+
+	shape := Shape{Rectangle{width: 10, height: 9}}
+	fmt.Println(shape.Area())
+}
