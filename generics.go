@@ -1,0 +1,69 @@
+package main
+
+import "fmt"
+
+func main() {
+	x, y := 1, 2
+	fmt.Println(x, y)
+	x, y = swap(x, y)
+	fmt.Println(x, y)
+
+	a, b := "Luis", "Miguel"
+	fmt.Println(a, b)
+	a, b = swap(a, b)
+	fmt.Println(a, b)
+
+	list := Stack[int]{}
+	list.push(1)
+	list.push(2)
+	list.push(3)
+	list.push(4)
+	list.printAll()
+	list.pop()
+	list.pop()
+	list.printAll()
+
+	stringsList := Stack[string]{}
+	stringsList.push("hello")
+	stringsList.printAll()
+	stringsList.pop()
+	stringsList.push("ola")
+	stringsList.push("Nia")
+	stringsList.pop()
+	stringsList.printAll()
+}
+
+func swap[T any](a, b T) (T, T) {
+	return b, a
+}
+
+type Stack[T any] struct {
+	elements []T
+}
+
+func (s *Stack[T]) push(e T) {
+	s.elements = append(s.elements, e)
+}
+
+func (s *Stack[T]) pop() (T, bool) {
+	if len(s.elements) == 0 {
+		var zero T
+		return zero, false
+	}
+
+	element := s.elements[len(s.elements)-1]
+	s.elements = s.elements[:len(s.elements)-1] // Splice removing last element
+
+	return element, true
+}
+
+func (s *Stack[T]) isEmpty() bool {
+	return len(s.elements) == 0
+}
+
+func (s *Stack[T]) printAll() {
+	for _, e := range s.elements {
+		fmt.Println(e)
+	}
+	fmt.Println()
+}
