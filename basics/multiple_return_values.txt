@@ -10,7 +10,7 @@ func main() {
 	q, r := divide(9, 4)
 	fmt.Println(q, r)
 
-	// Function that return possibly an error
+	// Function that return possibly an err
 	result, response := compare(8, 8)
 	if response != nil {
 		fmt.Println("Error:", response)
@@ -19,7 +19,7 @@ func main() {
 	}
 }
 
-func compare(a, b int) (string, error) {
+func compare(a, b int) (string, err) {
 	if a > b {
 		return "A is greater than B", nil
 	} else if a < b {

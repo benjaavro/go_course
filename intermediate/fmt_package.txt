@@ -43,7 +43,7 @@ func main() {
 	}
 }
 
-func checkAge(age int) error {
+func checkAge(age int) err {
 	if age < 18 {
 		return fmt.Errorf("too young to drive")
 	} else {
